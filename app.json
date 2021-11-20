@@ -1,0 +1,72 @@
+{
+  "name": "Telegram Voice Chat Bot",
+  "description": "Telegram Voice-Chat Bot Written In Python Using Pytgcalls & Pyrogram.",
+  "repository": "https://github.com/rahulkhatri137/TG-VC-Music",
+  "logo": "https://i.imgur.com/8S8NVy0.png",
+  "keywords": [
+    "python",
+    "telegram",
+    "bot",
+    "voicechat",
+    "youtube",
+    "telegram-bot",
+    "pyrogram",
+    "pytgcalls",
+    "tgcalls",
+    "jiosaavn",
+    "telegram-vcbot",
+    "telegram-musicbot"
+  ],
+  "stack": "heroku-20",
+  "env": {
+    "API_ID": {
+            "description": "API_ID of your Telegram Account my.telegram.org/apps",
+            "required": true
+    },
+    "API_HASH": {
+            "description": "API_HASH of your Telegram Account my.telegram.org/apps",
+            "required": true
+    },
+    "SESSION_STRING": {
+            "description": "Session string, Check the readme if you don't know how to get this.",
+            "required": true
+    },
+    "ARQ_API_KEY": {
+	    "description": "Get this from @ARQRobot.",
+	    "required": true
+    },
+    "DEFAULT_SERVICE": {
+            "description": "Must be one of youtube/saavn.",
+            "value": "youtube",
+            "required": true
+    },
+    "BITRATE": {
+            "description": "Must be 512/320.",
+            "value": "512",
+            "required": true
+    },
+    "ARQ_API": {
+            "description": "ARQ_API. Don't Change",
+            "value": "https://thearq.tech",
+            "required": true
+    },
+    "CHAT_ID": {
+            "description": "Get Chat ID from Rose bot",
+            "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
