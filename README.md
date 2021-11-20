@@ -15,6 +15,8 @@ Command | Description
 /pause | Pause Music.
 /resume | Resume Music.
 
+## [Session](https://replit.com/@rahulkhatri137/String)
+
 ## Deploy to Heroku
 <p><a href="https://heroku.com/deploy"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
 
