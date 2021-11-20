@@ -9,8 +9,9 @@ RUN apt-get install -y git ffmpeg python3-pip opus-tools
 RUN python3.9 -m pip install -U pip
 
 # Cloning the repo
-RUN git clone https://github.com/rahulkhatri137/TG-VC-Music .
+RUN git clone https://github.com/rahulkhatri137/TG-VC-Music /root/Music/
 
+WORKDIR /root/Music/
 RUN python3.9 -m pip install -U -r requirements.txt
 
 #Running VCBot
