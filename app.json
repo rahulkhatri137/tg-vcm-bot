@@ -46,8 +46,8 @@
             "required": true
     },
     "ARQ_API": {
-            "description": "ARQ_API. Don't Change",
-            "value": "https://thearq.tech",
+            "description": "ARQ_API_URL. Don't Change",
+            "value": "https://grambuilders.tech",
             "required": true
     },
     "CHAT_ID": {
