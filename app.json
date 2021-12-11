@@ -1,63 +1,64 @@
 {
-  "name": "Telegram Voice Chat Bot",
-  "description": "Telegram Voice-Chat Bot Written In Python Using Pytgcalls & Pyrogram.",
-  "repository": "https://github.com/rahulkhatri137/TG-VC-Music",
-  "logo": "https://i.imgur.com/8S8NVy0.png",
-  "keywords": [
-    "python",
-    "telegram",
-    "bot",
-    "voicechat",
-    "youtube",
-    "telegram-bot",
-    "pyrogram",
-    "pytgcalls",
-    "tgcalls",
-    "jiosaavn",
-    "telegram-vcbot",
-    "telegram-musicbot"
-  ],
-  "stack": "container",
-  "env": {
-    "API_ID": {
-            "description": "API_ID of your Telegram Account my.telegram.org/apps",
-            "required": true
+    "name": "Ultroid UserBot",
+    "description": "Pluggable telegram userbot, made in python using Telethon.",
+    "logo": "https://telegra.ph/file/031957757a4f6a5191040.jpg",
+    "keywords": [
+        "Telethon",
+        "telegram",
+        "userbot",
+        "python",
+        "ultroid"
+    ],
+    "repository": "https://github.com/TeamUltroid/Ultroid",
+    "website": "https://ultroid.tech",
+    "success_url": "https://t.me/TheUltroid",
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "description": "You api id, from my.telegram.org or @ScrapperRoBot.",
+            "value": "", 
+            "required": false
+        },
+        "API_HASH": {
+            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "value": "",
+            "required": false
+        },
+        "SESSION": {
+            "description": "Your session string. Can be added now, or after deploy. (The bot will NOT work without a session string!!)",
+            "value": ""
+        },
+        "REDIS_URI": {
+            "description": "Redis endpoint URL, from redislabs.com",
+            "value": ""
+        },
+        "REDIS_PASSWORD": {
+            "description": "Redis endpoint password, from redislabs.com",
+            "value": ""
+        },
+        "BOT_TOKEN ": {
+            "description": "Get your Bot token from @Botfather",
+            "value": ""
+        },
+        "LOG_CHANNEL": {
+            "description": "Group ID to send logs! Add bot in the group",
+            "value": ""
+        },
+        "HEROKU_API": {
+            "description": "Heroku API token. Mandatory for Heroku Deploy...",
+            "value": "",
+            "required": false
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Name of your Heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
+            "value": "",
+            "required": false
+        }
     },
-    "API_HASH": {
-            "description": "API_HASH of your Telegram Account my.telegram.org/apps",
-            "required": true
-    },
-    "SESSION_STRING": {
-            "description": "Session string, Check the readme if you don't know how to get this.",
-            "required": true
-    },
-    "ARQ_API_KEY": {
-	    "description": "Get this from @ARQRobot.",
-	    "required": true
-    },
-    "DEFAULT_SERVICE": {
-            "description": "Must be one of youtube/saavn.",
-            "value": "youtube",
-            "required": true
-    },
-    "BITRATE": {
-            "description": "Must be 512/320.",
-            "value": "512",
-            "required": true
-    },
-    "ARQ_API": {
-            "description": "ARQ_API_URL. Don't Change",
-            "value": "https://grambuilders.tech",
-            "required": true
-    },
-    "CHAT_ID": {
-            "description": "Get Chat ID from Rose bot",
-            "required": true
+    "formation": {
+        "ultroid": {
+            "quantity": 1,
+            "size": "free"
+        }
     }
-  },
-  "buildpacks": [
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    }
-  ]
 }
