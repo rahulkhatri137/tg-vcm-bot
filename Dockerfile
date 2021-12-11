@@ -1,21 +1,17 @@
-FROM python:3.9.5-buster
+FROM kenhv/mirrorbot:ubuntu
 
-RUN apt-get update && apt-get upgrade -y
-
-#Installing Requirements
-RUN apt-get install -y git python3-pip
-
-#Updating pip
-RUN python3.9 -m pip install -U pip
+RUN apt-get install -y git
 
 # Cloning the repo
-RUN git clone https://github.com/rahulkhatri137/TG-VC-Music /root/Music/
+RUN git clone $URL /usr/src/app/
 
-WORKDIR /root/Music/
-#Installing Requirements
-RUN apt-get install -y ffmpeg python3-pip opus-tools
+WORKDIR /usr/src/app
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN python3.9 -m pip install -U -r requirements.txt
+RUN set -ex \
+    && chmod 777 /usr/src/app \
+    && cp netrc /root/.netrc \
+    && cp extract pextract /usr/local/bin \
+    && chmod +x aria.sh /usr/local/bin/extract /usr/local/bin/pextract
 
-#Running VCBot
-CMD ["python3.9","main.py"]
+CMD ["bash", "start.sh"]
