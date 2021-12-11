@@ -1,21 +1,22 @@
-FROM python:3.9.5-buster
+# Ultroid - UserBot
+# Copyright (C) 2021 TeamUltroid
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
-RUN apt-get update && apt-get upgrade -y
+FROM theteamultroid/ultroid:main
 
-#Installing Requirements
-RUN apt-get install -y git python3-pip
+# set timezone
+ENV TZ=Asia/Kolkata
 
-#Updating pip
-RUN python3.9 -m pip install -U pip
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 
-# Cloning the repo
-RUN git clone https://github.com/rahulkhatri137/TG-VC-Music /root/Music/
+    # cloning the repo and installing requirements.
+    && git clone https://github.com/rahulkhatri137/Ultroid.git /root/TeamUltroid/ \
+    && pip3 install --no-cache-dir -r root/TeamUltroid/requirements.txt \
+    && pip3 uninstall av -y && pip3 install av --no-binary av
 
-WORKDIR /root/Music/
-#Installing Requirements
-RUN apt-get install -y ffmpeg python3-pip opus-tools
+# changing workdir
+WORKDIR /root/TeamUltroid/
 
-RUN python3.9 -m pip install -U -r requirements.txt
-
-#Running VCBot
-CMD ["python3.9","main.py"]
+# start the bot
+CMD ["bash", "resources/startup/startup.sh"]
